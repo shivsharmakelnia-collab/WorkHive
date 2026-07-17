@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WORKHIVE Payment</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<section class="auth-page">
+
+<div class="auth-card">
+
+<h1>Complete Payment</h1>
+
+<p>Select your payment method.</p>
+
+<h2 style="margin-top:20px;">Selected Plan</h2>
+
+<h1 id="planPrice" style="color:#2563eb;font-size:40px;margin:10px 0;">
+₹0
+</h1>
+
+<div class="payment-method">
+
+<a id="phonepeBtn" class="pay-card" href="#">
+🟣 PhonePe
+</a>
+
+<a id="gpayBtn" class="pay-card" href="#">
+🔵 Google Pay
+</a>
+
+<a id="paytmBtn" class="pay-card" href="#">
+🔵 Paytm
+</a>
+
+<a id="upiBtn" class="pay-card" href="#">
+💳 Any UPI App
+</a>
+
+</div>
+
+
+<input
+type="text"
+id="transactionId"
+placeholder="Enter UPI Transaction ID"
+required
+style="width:100%;padding:15px;margin:20px 0;border:1px solid #ddd;border-radius:10px;">
+
+
+<a href="#" class="auth-btn" id="payBtn">
+Pay Securely
+</a>
+
+<p class="auth-note">
+Your payment will be processed securely through Cashfree Payment Gateway.
+</p>
+
+</div>
+
+<label class="check-box">
+
+<input type="checkbox" id="confirmPayment">
+
+I have successfully completed the payment.
+
+</label>
+
+</section>
+
+<script>
+
+document.getElementById("payBtn").onclick = function(e){
+
+e.preventDefault();
+
+const txn = document.getElementById("transactionId").value;
+
+const confirm = document.getElementById("confirmPayment").checked;
+
+if(txn==""){
+
+alert("Please enter Transaction ID");
+
+return;
+
+}
+
+if(!confirm){
+
+alert("Please confirm that payment has been completed.");
+
+return;
+
+}
+
+localStorage.setItem("transactionId",txn);
+localStorage.setItem("paymentStatus","Pending Verification");
+
+alert("Payment submitted successfully. Our team will verify your payment.");
+
+window.location.href="dashboard.html?plan="+plan;
+
+};
+
+</script>
+
+</body>
+
+</html>

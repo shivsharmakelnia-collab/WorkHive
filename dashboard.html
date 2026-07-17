@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WORKHIVE Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<section class="dashboard-page">
+
+<div class="dashboard-card">
+
+<h1>WORKHIVE</h1>
+
+<p>Customer Dashboard</p>
+
+<div class="status pending">
+Payment Status : Pending Verification
+</div>
+
+<div class="dashboard-info">
+
+<div class="info-box">
+<h3>Customer ID</h3>
+<p>WH100001</p>
+</div>
+
+<div class="info-box">
+<h3>Purchase Date</h3>
+<p>17 July 2026</p>
+</div>
+
+<div class="info-box">
+<h3>Order ID</h3>
+<p>ORD-20260001</p>
+</div>
+
+<div class="info-box">
+<h3>Verification Time</h3>
+<p>Within 30 Minutes</p>
+</div>
+
+<div class="info-box">
+<h3>Current Status</h3>
+<p style="color:#f59e0b;font-weight:600;">
+Pending Review
+</p>
+</div>
+
+<div class="info-box">
+<h3>Assigned Team</h3>
+<p>WORKHIVE Support Team</p>
+</div>
+
+<div class="info-box">
+<h3>Registration Date</h3>
+<p>10 July 2026</p>
+</div>
+
+<div class="info-box">
+<h3>Account Status</h3>
+<p>Active</p>
+</div>
+
+</div>
+
+<div class="dashboard-action">
+
+<a href="#" class="auth-btn">
+Contact Support
+</a>
+
+</div>
+
+<div class="dashboard-info">
+
+<div class="info-box">
+<h3>Customer</h3>
+<p>Demo User</p>
+</div>
+
+<div class="info-box">
+<h3>Selected Plan</h3>
+<p id="selectedPlan">Loading...</p>
+</div>
+
+<div class="info-box">
+<h3>Payment Method</h3>
+<p>UPI</p>
+</div>
+
+<div class="info-box">
+<h3>Transaction ID</h3>
+<p id="txnId">Loading...</p>
+
+<div class="info-box">
+<h3>Verification</h3>
+<p id="paymentStatus">Loading...</p>
+
+<div class="info-box">
+<h3>Next Step</h3>
+<p>Our team will verify your payment and contact you shortly.</p>
+</div>
+
+<div class="info-box">
+<h3>Estimated Verification</h3>
+<p>30 Minutes to 24 Hours</p>
+</div>
+
+<div class="info-box">
+<h3>Training Status</h3>
+<p>Locked (Available after activation)</p>
+</div>
+
+</div>
+
+
+<div class="dashboard-action">
+
+<a href="#" class="auth-btn">
+Contact Support
+</a>
+
+<a href="index.html" class="auth-btn login">
+Back to Home
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const plan = params.get("plan");
+
+let planName = "";
+
+if(plan == "1399"){
+    planName = "₹1399 - Starter";
+}
+else if(plan == "2199"){
+    planName = "₹2199 - Professional";
+}
+else if(plan == "2849"){
+    planName = "₹2849 - Premium";
+}
+else{
+    planName = "No Plan Selected";
+}
+
+document.getElementById("selectedPlan").textContent = planName;
+
+document.getElementById("txnId").textContent =
+localStorage.getItem("transactionId") || "Not Available";
+
+document.getElementById("paymentStatus").textContent =
+localStorage.getItem("paymentStatus") || "Pending Verification";
+
+</script>
+
+
+</body>
+
+</html>
